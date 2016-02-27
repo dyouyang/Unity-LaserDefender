@@ -36,11 +36,11 @@ public class EnemySpawner : MonoBehaviour {
 	void Update () {
 		transform.position += movement;
 
-		// If the bounds are outside the edges, reverse direction
-		if (transform.position.x + width / 2 >= xMax
-			|| transform.position.x - width / 2 <= xMin) {
-
-			movement *= -1;
+		// If the bounds are outside the edges, go in the correct direction
+		if (transform.position.x + width / 2 >= xMax) {
+			movement = Vector3.left * Time.deltaTime * movementSpeed;
+		} else if (transform.position.x - width / 2 <= xMin) {
+			movement = Vector3.right * Time.deltaTime * movementSpeed;
 		}
 
 	}
