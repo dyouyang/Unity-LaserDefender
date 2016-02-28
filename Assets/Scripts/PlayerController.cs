@@ -10,6 +10,11 @@ public class PlayerController : MonoBehaviour {
 
 	public float padding = 1.0f;
 
+	public GameObject laser;
+	public float laserSpeed;
+
+	public float fireRate;
+
 	// Use this for initialization
 	void Start () {
 
@@ -32,5 +37,16 @@ public class PlayerController : MonoBehaviour {
 
 		float clampedX = Mathf.Clamp (transform.position.x, xMin, xMax);
 		transform.position = new Vector3 (clampedX, transform.position.y, transform.position.z);
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			InvokeRepeating ("FireZeMissile", 0.000001f, fireRate);
+		} else if (Input.GetKeyUp (KeyCode.Space)) {
+			CancelInvoke ("FireZeMissile");
+		}
+	}
+
+	void FireZeMissile() {
+		GameObject laserObject = Instantiate(laser, transform.position, Quaternion.identity) as GameObject;
+		laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, laserSpeed, 0);
 	}
 }
