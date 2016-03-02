@@ -507,52 +507,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 493972, guid: bb4434437954b4fe5a55dea7ff24b8b0, type: 2}
   m_PrefabInternal: {fileID: 2104420140}
---- !u!1001 &1815411375
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 421526, guid: c01bb125b22ca41d6a6eb4422621e445, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 421526, guid: c01bb125b22ca41d6a6eb4422621e445, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 421526, guid: c01bb125b22ca41d6a6eb4422621e445, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 421526, guid: c01bb125b22ca41d6a6eb4422621e445, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 421526, guid: c01bb125b22ca41d6a6eb4422621e445, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 421526, guid: c01bb125b22ca41d6a6eb4422621e445, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 421526, guid: c01bb125b22ca41d6a6eb4422621e445, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 421526, guid: c01bb125b22ca41d6a6eb4422621e445, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6106580, guid: c01bb125b22ca41d6a6eb4422621e445, type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c01bb125b22ca41d6a6eb4422621e445, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &1977773834 stripped
 Transform:
   m_PrefabParentObject: {fileID: 493972, guid: bb4434437954b4fe5a55dea7ff24b8b0, type: 2}
