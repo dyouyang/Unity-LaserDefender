@@ -12,7 +12,7 @@ GameObject:
   - 50: {fileID: 5098106}
   - 61: {fileID: 6106580}
   - 114: {fileID: 11437484}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: playerLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +116,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: damage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

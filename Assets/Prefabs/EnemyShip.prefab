@@ -12,7 +12,7 @@ GameObject:
   - 50: {fileID: 5064938}
   - 61: {fileID: 6100058}
   - 114: {fileID: 11411060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,6 +74,7 @@ MonoBehaviour:
   hp: 150
   laser: {fileID: 152966, guid: 59669cd90f9234c349952a7b4bfbd6c1, type: 2}
   laserSpeed: 2
+  shotsPerSecond: .5
 --- !u!212 &21296226
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -134,6 +135,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: laserSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
