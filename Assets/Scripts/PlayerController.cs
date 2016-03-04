@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 
 	public float fireRate;
 
+	public float hp;
+
 	// Use this for initialization
 	void Start () {
 
@@ -46,7 +48,24 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FireZeMissile() {
-		GameObject laserObject = Instantiate(laser, transform.position, Quaternion.identity) as GameObject;
+		Vector3 laserPosition = transform.position + new Vector3 (0, 1, 0);
+		GameObject laserObject = Instantiate(laser, laserPosition, Quaternion.identity) as GameObject;
 		laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, laserSpeed, 0);
+	}
+
+	void OnTriggerEnter2D(Collider2D collider) {
+		Projectile projectile = collider.gameObject.GetComponent<Projectile> ();
+		if (projectile != null) {
+			TakeDamageFrom(projectile);
+		}
+	}
+
+	void TakeDamageFrom (Projectile projectile)
+	{
+		hp -= projectile.damage;
+		if (hp <= 0) {
+			Destroy(gameObject);
+		}
+		projectile.OnHit ();
 	}
 }

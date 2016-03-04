@@ -72,6 +72,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 150
+  laser: {fileID: 152966, guid: 59669cd90f9234c349952a7b4bfbd6c1, type: 2}
+  laserSpeed: 2
 --- !u!212 &21296226
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -124,6 +126,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: hp
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: laser
+      value: 
+      objectReference: {fileID: 152966, guid: 59669cd90f9234c349952a7b4bfbd6c1, type: 2}
+    - target: {fileID: 0}
+      propertyPath: laserSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
