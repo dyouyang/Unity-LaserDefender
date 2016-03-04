@@ -17,12 +17,7 @@ public class EnemySpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
-		// Get each "position" child in this spawner
-		foreach (Transform childPosition in transform) {
-			GameObject enemy = (GameObject) Instantiate (enemyPrefab, childPosition.transform.position, Quaternion.identity);
-			enemy.transform.parent = childPosition;
-		}
-
+		SpawnAllEnemies ();
 		movement = Vector3.right * Time.deltaTime * movementSpeed;
 		setEdgeDetection ();
 	}
@@ -43,6 +38,9 @@ public class EnemySpawner : MonoBehaviour {
 			movement = Vector3.right * Time.deltaTime * movementSpeed;
 		}
 
+		if (AllEnemiesAreDead ()) {
+			SpawnAllEnemies();
+		}
 	}
 
 	void setEdgeDetection ()
@@ -53,5 +51,28 @@ public class EnemySpawner : MonoBehaviour {
 		Vector3 rightSide = Camera.main.ViewportToWorldPoint (new Vector3 (1,0,distanceObjectToCamera));
 		xMin = leftSide.x; 
 		xMax = rightSide.x;
+	}
+
+	bool AllEnemiesAreDead () {
+		int enemiesLeft = transform.childCount;
+		foreach (Transform position in transform) {
+			if (position.childCount == 0) {
+				enemiesLeft--;
+			}
+		}
+		
+		if (enemiesLeft == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	void SpawnAllEnemies() {
+		// Get each "position" child in this spawner
+		foreach (Transform childPosition in transform) {
+			GameObject enemy = (GameObject) Instantiate (enemyPrefab, childPosition.transform.position, Quaternion.identity);
+			enemy.transform.parent = childPosition;
+		}
 	}
 }
