@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour {
 	public float width;
 	public float height;
 	public float movementSpeed;
+	public float spawnDelay;
 
 	Vector3 movement;
 
@@ -39,7 +40,7 @@ public class EnemySpawner : MonoBehaviour {
 		}
 
 		if (AllEnemiesAreDead ()) {
-			SpawnAllEnemies();
+			SpawnEnemiesUntilFull();
 		}
 	}
 
@@ -68,11 +69,32 @@ public class EnemySpawner : MonoBehaviour {
 		}
 	}
 
+	Transform NextFreePosition() {
+		foreach (Transform position in transform) {
+			if (position.childCount == 0) {
+				return position;
+			}
+		}
+
+		// No free position in the formation.
+		return null;
+	}
+
 	void SpawnAllEnemies() {
 		// Get each "position" child in this spawner
 		foreach (Transform childPosition in transform) {
 			GameObject enemy = (GameObject) Instantiate (enemyPrefab, childPosition.transform.position, Quaternion.identity);
 			enemy.transform.parent = childPosition;
 		}
+	}
+
+	void SpawnEnemiesUntilFull() {
+		Transform spawnAt = NextFreePosition ();
+		if (spawnAt != null) {
+			GameObject enemy = (GameObject) Instantiate (enemyPrefab, spawnAt.transform.position, Quaternion.identity);
+			enemy.transform.parent = spawnAt;
+			Invoke("SpawnEnemiesUntilFull", spawnDelay);
+		}
+
 	}
 }
