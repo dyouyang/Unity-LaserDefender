@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5064938}
   - 61: {fileID: 6100058}
   - 114: {fileID: 11411060}
+  - 95: {fileID: 9580420}
   m_Layer: 8
   m_Name: EnemyShip
   m_TagString: Untagged
@@ -60,6 +61,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .930000007, y: .839999974}
+--- !u!95 &9580420
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144388}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4bfbebccd54c64f05ac1d5e043525270, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11411060
 MonoBehaviour:
   m_ObjectHideFlags: 1
