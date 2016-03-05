@@ -10,6 +10,14 @@ public class EnemyBehavior : MonoBehaviour {
 
 	public float shotsPerSecond = 0.5f;
 
+	int scoreWorth = 150;
+
+	public ScoreKeeper scoreKeeper;
+
+	void Start() {
+		scoreKeeper = GameObject.FindObjectOfType<ScoreKeeper> ();
+	}
+
 	void Update () {
 		float probabilityToFire = shotsPerSecond * Time.deltaTime;
 
@@ -30,6 +38,8 @@ public class EnemyBehavior : MonoBehaviour {
 	{
 		hp -= projectile.damage;
 		if (hp <= 0) {
+			scoreKeeper.AddToScore(this.scoreWorth);
+			print ("destroyed adding " + scoreWorth.ToString());
 			Destroy(gameObject);
 		}
 		projectile.OnHit ();
