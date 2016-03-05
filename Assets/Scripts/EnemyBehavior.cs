@@ -14,6 +14,9 @@ public class EnemyBehavior : MonoBehaviour {
 
 	public ScoreKeeper scoreKeeper;
 
+	public AudioClip destroyedSound;
+	public AudioClip laserSound;
+
 	void Start() {
 		scoreKeeper = GameObject.FindObjectOfType<ScoreKeeper> ();
 	}
@@ -41,13 +44,14 @@ public class EnemyBehavior : MonoBehaviour {
 			scoreKeeper.AddToScore(this.scoreWorth);
 			print ("destroyed adding " + scoreWorth.ToString());
 			Destroy(gameObject);
+			AudioSource.PlayClipAtPoint(destroyedSound, transform.position);
 		}
 		projectile.OnHit ();
 	}
 
 	void FireZeMissile() {
-		Vector3 laserPosition = transform.position + new Vector3 (0, -1, 0);
-		laser = Instantiate (laser, laserPosition, Quaternion.identity) as GameObject;
+		laser = Instantiate (laser, transform.position, Quaternion.identity) as GameObject;
 		laser.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -laserSpeed);
+		AudioSource.PlayClipAtPoint (laserSound, transform.position, 0.25f);
 	}
 }

@@ -93,6 +93,9 @@ MonoBehaviour:
   laser: {fileID: 152966, guid: 59669cd90f9234c349952a7b4bfbd6c1, type: 2}
   laserSpeed: 2
   shotsPerSecond: .5
+  scoreKeeper: {fileID: 0}
+  destroyedSound: {fileID: 8300000, guid: ef215fd74e5b346eaa61952545e21627, type: 3}
+  laserSound: {fileID: 8300000, guid: 5dc06a24e34c349b2a89740b45713d7f, type: 3}
 --- !u!212 &21296226
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -158,6 +161,22 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ef215fd74e5b346eaa61952545e21627, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: destroyedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ef215fd74e5b346eaa61952545e21627, type: 3}
+    - target: {fileID: 0}
+      propertyPath: laserSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5dc06a24e34c349b2a89740b45713d7f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 144388}

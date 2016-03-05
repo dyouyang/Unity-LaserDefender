@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour {
 
 	public float hp;
 
+	public AudioClip laserSound;
+
 	// Use this for initialization
 	void Start () {
 
@@ -48,9 +50,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FireZeMissile() {
+
 		Vector3 laserPosition = transform.position + new Vector3 (0, 1, 0);
 		GameObject laserObject = Instantiate(laser, laserPosition, Quaternion.identity) as GameObject;
 		laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, laserSpeed, 0);
+		AudioSource.PlayClipAtPoint (laserSound, transform.position);
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
