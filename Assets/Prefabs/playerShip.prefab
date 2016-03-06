@@ -94,6 +94,7 @@ MonoBehaviour:
   fireRate: .5
   hp: 250
   laserSound: {fileID: 8300000, guid: 40cf5f05d29a34e799f6f0c736cd2173, type: 3}
+  deadSound: {fileID: 8300000, guid: a81fd6118a7d54982af97c01dadbd18b, type: 3}
 --- !u!212 &21297796
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -139,6 +140,10 @@ Prefab:
       propertyPath: m_SortingLayerID
       value: -1946744293
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: deadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a81fd6118a7d54982af97c01dadbd18b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 103296}

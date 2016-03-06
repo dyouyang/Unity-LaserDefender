@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 	public float hp;
 
 	public AudioClip laserSound;
+	public AudioClip deadSound;
 
 	// Use this for initialization
 	void Start () {
@@ -67,8 +68,14 @@ public class PlayerController : MonoBehaviour {
 	{
 		hp -= projectile.damage;
 		if (hp <= 0) {
-			Destroy(gameObject);
+			DestroySelfAndGameOver();
 		}
 		projectile.OnHit ();
+	}
+
+	void DestroySelfAndGameOver() {
+		AudioSource.PlayClipAtPoint (deadSound, transform.position);
+		Destroy(gameObject);
+		FindObjectOfType<LevelManager> ().LoadLevel ("Win Screen");
 	}
 }
