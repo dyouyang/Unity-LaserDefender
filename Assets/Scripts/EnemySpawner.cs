@@ -7,7 +7,8 @@ public class EnemySpawner : MonoBehaviour {
 
 	public float width;
 	public float height;
-	public float movementSpeed;
+	public float baseMovementSpeed;
+	float movementSpeed;
 	public float spawnDelay;
 
 	Vector3 movement;
@@ -15,10 +16,13 @@ public class EnemySpawner : MonoBehaviour {
 	float xMin;
 	float xMax;
 
+	float difficultyModifier = 0f;
+
 	// Use this for initialization
 	void Start () {
 	
 		SpawnAllEnemies ();
+		movementSpeed = baseMovementSpeed;
 		movement = Vector3.right * Time.deltaTime * movementSpeed;
 		setEdgeDetection ();
 	}
@@ -40,6 +44,8 @@ public class EnemySpawner : MonoBehaviour {
 		}
 
 		if (AllEnemiesAreDead ()) {
+			difficultyModifier += 1.0f;
+			SpeedUp();
 			SpawnEnemiesUntilFull();
 		}
 	}
@@ -96,5 +102,10 @@ public class EnemySpawner : MonoBehaviour {
 			Invoke("SpawnEnemiesUntilFull", spawnDelay);
 		}
 
+	}
+
+	void SpeedUp ()
+	{
+		movementSpeed = baseMovementSpeed + 1.0f * difficultyModifier;
 	}
 }

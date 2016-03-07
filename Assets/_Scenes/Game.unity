@@ -1235,8 +1235,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 144388, guid: b0359f007d8d44b799a238ba582dca99, type: 2}
   width: 10
   height: 7
-  movementSpeed: 2
-  spawnDelay: 1
+  baseMovementSpeed: 1
+  spawnDelay: .5
 --- !u!4 &77386505
 Transform:
   m_ObjectHideFlags: 0
@@ -2763,7 +2763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e18544673f1947d3be12fbedf4c475c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
 --- !u!1001 &1093114991
 Prefab:
   m_ObjectHideFlags: 0
