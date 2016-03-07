@@ -6,9 +6,12 @@ public class EnemyBehavior : MonoBehaviour {
 	public float hp;
 
 	public GameObject laser;
-	public float laserSpeed;
 
-	public float shotsPerSecond = 0.5f;
+	public static float baseLaserSpeed = 2.0f;
+	public static float laserSpeed;
+
+	public static float baseShotsPerSecond = 0.5f;
+	public static float shotsPerSecond;
 
 	int scoreWorth = 150;
 

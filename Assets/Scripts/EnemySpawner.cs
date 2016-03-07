@@ -25,6 +25,9 @@ public class EnemySpawner : MonoBehaviour {
 		movementSpeed = baseMovementSpeed;
 		movement = Vector3.right * Time.deltaTime * movementSpeed;
 		setEdgeDetection ();
+
+		EnemyBehavior.laserSpeed = EnemyBehavior.baseLaserSpeed;
+		EnemyBehavior.shotsPerSecond = EnemyBehavior.baseShotsPerSecond;
 	}
 
 	void OnDrawGizmos() {
@@ -107,5 +110,7 @@ public class EnemySpawner : MonoBehaviour {
 	void SpeedUp ()
 	{
 		movementSpeed = baseMovementSpeed + 1.0f * difficultyModifier;
+		EnemyBehavior.shotsPerSecond = EnemyBehavior.baseShotsPerSecond + 0.2f * difficultyModifier;
+		EnemyBehavior.laserSpeed = EnemyBehavior.baseLaserSpeed + 0.5f * difficultyModifier;
 	}
 }
