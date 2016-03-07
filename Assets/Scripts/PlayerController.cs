@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour {
 	public AudioClip laserSound;
 	public AudioClip deadSound;
 
+	public int playerNumber;
+
 	// Use this for initialization
 	void Start () {
 
@@ -34,19 +36,38 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKey (KeyCode.LeftArrow)) {
-			transform.position += Vector3.left * speed * Time.deltaTime;  //deltaTime makes movement framerate agnostic.
-		} else if (Input.GetKey (KeyCode.RightArrow)) {
-			transform.position += Vector3.right * speed * Time.deltaTime;
+		if (playerNumber == 1) {
+			if (Input.GetKey (KeyCode.LeftArrow)) {
+				transform.position += Vector3.left * speed * Time.deltaTime;  //deltaTime makes movement framerate agnostic.
+			} else if (Input.GetKey (KeyCode.RightArrow)) {
+				transform.position += Vector3.right * speed * Time.deltaTime;
+			}
+
+			float clampedX = Mathf.Clamp (transform.position.x, xMin, xMax);
+			transform.position = new Vector3 (clampedX, transform.position.y, transform.position.z);
+
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				InvokeRepeating ("FireZeMissile", 0.000001f, fireRate);
+			} else if (Input.GetKeyUp (KeyCode.Space)) {
+				CancelInvoke ("FireZeMissile");
+			}
 		}
 
-		float clampedX = Mathf.Clamp (transform.position.x, xMin, xMax);
-		transform.position = new Vector3 (clampedX, transform.position.y, transform.position.z);
-
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			InvokeRepeating ("FireZeMissile", 0.000001f, fireRate);
-		} else if (Input.GetKeyUp (KeyCode.Space)) {
-			CancelInvoke ("FireZeMissile");
+		if (playerNumber == 2) {
+			if (Input.GetKey (KeyCode.A)) {
+				transform.position += Vector3.left * speed * Time.deltaTime;  //deltaTime makes movement framerate agnostic.
+			} else if (Input.GetKey (KeyCode.D)) {
+				transform.position += Vector3.right * speed * Time.deltaTime;
+			}
+			
+			float clampedX = Mathf.Clamp (transform.position.x, xMin, xMax);
+			transform.position = new Vector3 (clampedX, transform.position.y, transform.position.z);
+			
+			if (Input.GetKeyDown (KeyCode.S)) {
+				InvokeRepeating ("FireZeMissile", 0.000001f, fireRate);
+			} else if (Input.GetKeyUp (KeyCode.S)) {
+				CancelInvoke ("FireZeMissile");
+			}
 		}
 	}
 
@@ -76,6 +97,7 @@ public class PlayerController : MonoBehaviour {
 	void DestroySelfAndGameOver() {
 		AudioSource.PlayClipAtPoint (deadSound, transform.position);
 		Destroy(gameObject);
+
 		FindObjectOfType<LevelManager> ().LoadLevel ("Win Screen");
 	}
 }
