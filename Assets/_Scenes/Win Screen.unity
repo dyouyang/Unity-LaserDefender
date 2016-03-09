@@ -527,7 +527,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You defeated the aliens
+  m_Text: Player X wins
 --- !u!222 &869067659
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -901,6 +901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   P1ScoreText: {fileID: 686121675}
   P2ScoreText: {fileID: 906454788}
+  winnerText: {fileID: 869067658}
 --- !u!4 &1305296676
 Transform:
   m_ObjectHideFlags: 0

@@ -72,6 +72,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 200
+  playerNumber: 0
+  explosion: {fileID: 181148, guid: 2b297875fc66a4efb8464e6de3c04763, type: 2}
 --- !u!212 &21212668
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -117,6 +119,10 @@ Prefab:
       propertyPath: m_SortingLayerID
       value: 2001319441
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 181148, guid: 2b297875fc66a4efb8464e6de3c04763, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 152966}
