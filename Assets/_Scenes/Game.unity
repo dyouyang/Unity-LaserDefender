@@ -3078,7 +3078,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6035112, guid: 30dc2939ac1d745bb9677b4ea1b093b9, type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6035112, guid: 30dc2939ac1d745bb9677b4ea1b093b9, type: 2}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
