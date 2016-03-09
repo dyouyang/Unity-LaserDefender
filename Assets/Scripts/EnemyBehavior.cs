@@ -44,7 +44,7 @@ public class EnemyBehavior : MonoBehaviour {
 	{
 		hp -= projectile.damage;
 		if (hp <= 0) {
-			scoreKeeper.AddToScore(this.scoreWorth);
+			scoreKeeper.AddToScore(this.scoreWorth, projectile.playerNumber);
 			print ("destroyed adding " + scoreWorth.ToString());
 			Destroy(gameObject);
 			AudioSource.PlayClipAtPoint(destroyedSound, transform.position);
