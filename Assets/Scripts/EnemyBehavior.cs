@@ -55,6 +55,11 @@ public class EnemyBehavior : MonoBehaviour {
 	void FireZeMissile() {
 		laser = Instantiate (laser, transform.position, Quaternion.identity) as GameObject;
 		laser.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -laserSpeed);
+
+		if (GameObject.Find("player2Ship")) {
+			laser = Instantiate (laser, transform.position, Quaternion.identity) as GameObject;
+			laser.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, laserSpeed);
+		}
 		AudioSource.PlayClipAtPoint (laserSound, transform.position, 0.25f);
 	}
 }

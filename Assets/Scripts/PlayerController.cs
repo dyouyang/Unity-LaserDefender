@@ -73,8 +73,17 @@ public class PlayerController : MonoBehaviour {
 
 	void FireZeMissile() {
 
-		GameObject laserObject = Instantiate(laser, transform.position, Quaternion.identity) as GameObject;
-		laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, laserSpeed, 0);
+		if (playerNumber == 1) {
+			Vector3 laserPosition = transform.position + new Vector3 (0, 1, 0);
+			GameObject laserObject = Instantiate(laser, laserPosition, Quaternion.identity) as GameObject;
+			laserObject.GetComponent<Rigidbody2D> ().velocity = new Vector3 (0, laserSpeed, 0);
+
+		} else if (playerNumber == 2) {
+			Vector3 laserPosition = transform.position + new Vector3 (0, -1, 0);
+			GameObject laserObject = Instantiate(laser, laserPosition, Quaternion.identity) as GameObject;
+			laserObject.GetComponent<Rigidbody2D> ().velocity = new Vector3 (0, -laserSpeed, 0);
+
+		}
 		AudioSource.PlayClipAtPoint (laserSound, transform.position);
 	}
 
