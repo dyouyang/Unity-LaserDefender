@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject laser;
 	public float laserSpeed;
 
+	public GameObject explosion;
+
 	public float fireRate;
 
 	public float hp;
@@ -21,6 +23,8 @@ public class PlayerController : MonoBehaviour {
 	public AudioClip deadSound;
 
 	public int playerNumber;
+
+	private Vector3 savedPosition;
 
 	// Use this for initialization
 	void Start () {
@@ -97,14 +101,34 @@ public class PlayerController : MonoBehaviour {
 			TakeDamageFrom(projectile);
 		}
 	}
-
+	
 	void TakeDamageFrom (Projectile projectile)
 	{
-		hp -= projectile.damage;
-		if (hp <= 0) {
-			DestroySelfAndGameOver();
+		// In 2P mode, only the other player's projectile really damages or destroys the player.
+		if (projectile.playerNumber == 1 ||
+			projectile.playerNumber == 2) {
+			hp -= projectile.damage;
+			if (hp <= 0) {
+				DestroySelfAndGameOver ();
+			}
+		} else {
+
+			// AI Enemy lasers merely temporarily disable the player for 2s
+			savedPosition = transform.position;
+
+			// Moves player ship out of the game space and disables any possible collisions
+			transform.position += new Vector3 (0, 10000, 0);
+			GetComponent<PolygonCollider2D> ().enabled = false;
+
+			Invoke("Respawn", 2.0f);
 		}
 		projectile.OnHit ();
+	}
+
+	// After hit by AI enemy, respawn at original location
+	void Respawn() {
+		transform.position = savedPosition;
+		GetComponent<PolygonCollider2D> ().enabled = true;
 	}
 
 	void DestroySelfAndGameOver() {

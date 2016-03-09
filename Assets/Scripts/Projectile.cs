@@ -7,8 +7,11 @@ public class Projectile : MonoBehaviour {
 
 	public int playerNumber;
 
+	public GameObject explosion;
+
 	public void OnHit ()
 	{
+		Instantiate (explosion, transform.position, Quaternion.identity);
 		Destroy (gameObject);
 	}
 }
