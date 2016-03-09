@@ -3000,10 +3000,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .115365081, g: .477941155, b: 0, a: 1}
+  m_Color: {r: .241379261, g: 1, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9f4f91be3f1bb4b49a4e894b4baf1be1, type: 3}
-    m_FontSize: 25
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -3034,8 +3034,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -122, y: 31}
-  m_SizeDelta: {x: 213, y: 28.3999939}
+  m_AnchoredPosition: {x: -179.399994, y: 42.0999985}
+  m_SizeDelta: {x: 320, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &1093114991
 Prefab:
@@ -3572,8 +3572,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -120, y: -28}
-  m_SizeDelta: {x: 213, y: 28.4000244}
+  m_AnchoredPosition: {x: -174, y: -35}
+  m_SizeDelta: {x: 320, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1850308515
 MonoBehaviour:
@@ -3587,10 +3587,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .115365081, g: .477941155, b: 0, a: 1}
+  m_Color: {r: 1, g: .558620691, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9f4f91be3f1bb4b49a4e894b4baf1be1, type: 3}
-    m_FontSize: 25
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
